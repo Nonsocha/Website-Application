@@ -1,8 +1,10 @@
 name: CI/CD Pipeline
+
 on:
   push:
     branches:
       - main
+
 jobs:
   backend-api-tests:
     runs-on: ubuntu-latest
@@ -12,13 +14,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: '14'
       - name: Install dependencies
         run: npm install
         working-directory: ./backend-api
       - name: Run tests
         run: npm test
         working-directory: ./backend-api
+
   frontend-webapp-tests:
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +30,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "14"
+          node-version: '14'
       - name: Install dependencies
         run: npm install
         working-directory: ./frontend-webapp
