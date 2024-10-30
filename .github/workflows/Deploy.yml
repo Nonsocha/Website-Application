@@ -24,7 +24,8 @@ jobs:
       
       - name: Build Docker Image for Backend
         run: |
-          docker build -t sirwills-username/backend-api:latest ./backend-api
+          docker build -t sirwills/backend-api:latest -f ./backend-api/Dockerfile ./backend-api
+
       - name: Push Docker Image for Backend
         run: |
           echo "${{ secrets.DOCKER_HUB_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
@@ -49,7 +50,8 @@ jobs:
       
       - name: Build Docker Image for Backend
         run: |
-          docker build -t sirwills/backend-api:latest ./backend-api
+          docker build -t sirwills/backend-api:latest -f ./backend-api/Dockerfile ./backend-api
+
               
       - name: Push Docker Image for Backend
         run: |
