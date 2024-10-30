@@ -28,12 +28,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '14'
+
       - name: Install dependencies
         run: npm install
         working-directory: ./frontend-webapp
       - name: Run build
         run: npm build
         working-directory: ./frontend-webapp
-      - name: Run test
+      - name: Run tests
         run: npm test
         working-directory: ./frontend-webapp 
