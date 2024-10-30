@@ -18,6 +18,9 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./backend-api
+      - name: Run Test
+        run: npm test
+        working-directory: ./backend-api 
 
   frontend-webapp-tests:
     runs-on: ubuntu-latest
