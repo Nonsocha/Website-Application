@@ -4,27 +4,36 @@ on:
   push:
     branches:
       - main
+
 jobs:
   backend-api-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '14'
-      - run: npm install
-      - run: npm test
-        working-directory: ./backend-api-api
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./backend-api
+      - name: Run tests
+        run: npm test
+        working-directory: ./backend-api
 
   frontend-webapp-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '14'
-      - run: npm install
-      - run: npm test
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./frontend-webapp
+      - name: Run tests
+        run: npm test
         working-directory: ./frontend-webapp
